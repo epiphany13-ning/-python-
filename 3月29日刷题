@@ -1,0 +1,60 @@
+3月29日刷题
+### 1452 裁纸刀
+是否需要重刷：要
+输入日期的语法是：
+datetime.date(1221,11,11) #年，月，日之间用的是空格，而不是点
+其实获取timedelta语法：
+delta = datetime.timedelta(物理量 = 数值）
+eg：
+delta = datetime.timedelta(milliseconds = 1)
+假设只需要输入年份或者月份又或者时间
+直接 day.hour day.minute  day.second
+### 2060裁纸刀
+是否需要重刷：否
+重点：因为不会立马输出运行结果
+因此需要自己多举出实例进行相关运算
+### 2118排列字母
+是否需要重刷：否
+注意点：可以直接对字符串进行排序
+a.sort()
+### 1025 答疑
+是否需要重刷：否
+注意点：学会了如何对两个条件进行排序
+a.sort(key= lambda x: (x[1],x[2]) #第一个排序条件放在前面，第二个排序条件放在后面
+### 特殊日期 2408
+是否需要重刷：要
+注意点：
+import datetime
+start = datetime.date(1900,1,1)
+end = datetime.date(9999,12,31)
+delta = datetime.timedelta(days = 1)
+ans = 0
+while start <= end:
+##这里是<号，不能是<=。因为后面的天数还需要进行+1操作。因此这里不可以取等。取等之后日期数值会超过规定范围
+#最后一个日期进行特判即可
+    ans1 = 0
+    ans2 = 0
+    d = str(start.year)
+    m = str(start.month) + str(start.day)
+    for i in d:
+        ans1 += int(i)
+    for i in m:
+        ans2 += int(i)
+    if ans1 == ans2:
+        ans += 1
+    start += delta
+print(ans)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
