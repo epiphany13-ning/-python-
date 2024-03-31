@@ -1,0 +1,27 @@
+### 玩具蛇 1022
+是否需要重刷：要
+学到的知识点：dfs
+1 标记数组
+2 方向数组
+3 什么时候需要回溯
+4 这是递归的写法和bfs不同
+相关代码：
+def dfs(x,y,n):
+    global ans
+    if n == 16:
+        ans += 1
+        return
+    for delta_x,delta_y in [(0,1),(0,-1),(1,0),(-1,0)]:
+        xx,yy = delta_x + x,delta_y + y
+        if 0 <= xx < 4 and 0 <= yy < 4 and vis[xx][yy] != 1:#没有走过才继续往下走
+            vis[xx][yy] = 1
+            dfs(xx,yy,n + 1)
+            vis[xx][yy] = 0
+vis = [[0] * 4 for i in range(4)]
+ans = 0
+for x in range(4):
+    for y in range(4):
+        vis[x][y] = 1
+        dfs(x,y,1)#先打标记再走
+        vis[x][y] = 0#记得消除标记
+print(ans)
