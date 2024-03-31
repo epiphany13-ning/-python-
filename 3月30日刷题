@@ -1,0 +1,49 @@
+3月30刷题
+### 特殊时间 2119
+是否需要重刷：要
+注意点：没有找到解题关键，即约束条件
+年份和时间都是大范围的，而只有月份才是小范围的
+月份可选择的内容少，且约束条件多
+12 31
+时间是
+24，60
+而年份没有约束条件
+#自己的代码问题：
+将复杂度全部凑在一起，而没有分开写
+一次性进行到底了所以没有用
+### 数位排序 2122
+是否需要重刷：要
+自己的思路：
+from functools import cmp_to_key
+def cmp(i,j):
+    b = 0
+    c = 0
+    while i != 0:
+        b += i % 10
+        i //= 10
+    while j != 0:
+        c += j % 10
+        j //= 10
+    if b < c:
+        return -1
+    elif b == c:
+        if i < j:
+            return -1
+        else:
+            return 1
+    else:
+        return 1
+    
+n = int(input())
+m = int(input())
+a = [i for i in range(1,n + 1)]
+a.sort(key = cmp_to_key(cmp))
+print(a[m-1])
+数据太大了，导致没有完全通过
+学会新的知识点：
+数位求和新做法
+for i in str(a)
+    sum += int(i)
+sort()函数优先排小的数字在前面
+模仿大佬的代码：
+
