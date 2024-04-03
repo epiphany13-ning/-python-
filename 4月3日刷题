@@ -1,0 +1,17 @@
+### Acwing 3498日期差值
+是否需要重刷：要
+学会知识点：如何利用库函数
+由于datetime - datetime 返回值直接是timedelta类型，因此不用对date使用timedelta
+如：(start - end).days 即可
+而不用：timedelta(star - end).days
+import datetime
+while True:
+    try:
+        n1 = input()
+        n2 = input()
+        start = datetime.datetime.strptime(n1, '%Y%m%d')
+        end = datetime.datetime.strptime(n2, '%Y%m%d')
+        ans = abs((start - end).days)
+        print(ans + 1)
+    except:
+        break
