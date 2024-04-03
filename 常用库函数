@@ -62,3 +62,4 @@ strptime是这个名字，而不是striptime
   全拼：A
 月份(缩写）：b
   全拼：B
+timedelta:才用s
