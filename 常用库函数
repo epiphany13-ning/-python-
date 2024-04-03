@@ -1,0 +1,64 @@
+### datetime
+### `datetime` 类
+- `datetime.now()`: 获取当前的日期和时间。
+- `datetime.combine(date, time)`: 将日期和时间组合成一个 datetime 对象。
+- `datetime.strptime(date_string, format)`: 根据给定的格式字符串解析日期或时间字符串。
+- `datetime.today()`: 获取当前的本地日期和时间。
+- `datetime.fromtimestamp(timestamp)`: 根据给定的 timestamp 值创建一个 datetime 对象。
+
+
+### `date` 类
+- `date.year`: 获取日期的年份。
+- `date.month`: 获取日期的月份。
+- `date.day`: 获取日期的日。
+- `date.replace(year, month, day)`: 用新年份、月份和日期替换当前日期的年、月、日。
+- `date.today()`: 获取当前本地日期。
+- `date.fromtimestamp(timestamp)`: 根据给定的 timestamp 值创建一个 date 对象。
+date.weekday() #返回0-6表示今天是周几
+
+### `time` 类
+- `time.hour`: 获取时间的小时。
+- `time.minute`: 获取时间的分钟。
+- `time.second`: 获取时间的秒。
+- `time.replace(hour, minute, second, microsecond)`: 用新的时间替换当前时间的小时、分钟、秒和微秒。
+- `timedelta` 类: 表示时间差，通常用于日期和时间的加减运算。
+
+### `timedelta` 类
+- `timedelta.days`: 获取时间差的天数部分。
+- `timedelta.seconds`: 获取时间差的秒数部分。
+- `timedelta.microseconds`: 获取时间差的微秒数部分。
+  将数字变成一个可以加减的日期量：
+eg:
+datetime.timedelta(days = 1 or seconds = 1 or minutes = 1) 
+
+### 时间格式化和解析
+- `strftime(format)`: 将 datetime 对象格式化为字符串。
+- `strptime(date_string, format)`: 将字符串解析为 datetime 对象。
+
+### 时间加减
+- `datetime + timedelta`: 给 datetime 对象添加一个时间差。
+- `datetime - timedelta`: 从 datetime 对象中减去一个时间差。
+- `datetime - datetime`: 计算两个 datetime 对象之间的时间差。
+如何利用datetime库判断闰年：
+n = datetime.date(year = 2024)
+if n.isleap():
+    print(f"{n}is leap
+
+注意：
+datetime是一个大的库，包括了许多类函数
+其中有与它同名的类
+datetime
+strptime方法只存在于datetime这个类
+而不存在于类中不是类只是方法
+strptime是这个名字，而不是striptime
+时间格式：%Y%m%d
+年：%Y
+月：%m
+日：%d
+小时：%H
+分钟：%M
+秒：%S
+星期(缩写）：a
+  全拼：A
+月份(缩写）：b
+  全拼：B
