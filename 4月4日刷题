@@ -1,0 +1,40 @@
+### acwing奶牛选美
+是否需要重刷：要
+学会知识点：
+1 如何避免爆栈
+2 如何在dfs中往不同的列表中存放坐标
+3 如何实行回溯
+4 如何实现两个连通块之间的最短距离
+import sys
+sys.setrecursionlimit(100000)
+n, m = map(int, input().split())
+a = []
+for i in range(n):
+    row = list(input())
+    a.append(row)
+
+point = [],[]
+ans = 100
+def dfs(x, y, k):
+    global point, a
+    a[x][y] = "."###
+    point[k].append((x, y))
+
+    for delta_x, delta_y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+        xx, yy = delta_x + x, delta_y + y
+        if 0 <= xx < n and 0 <= yy < m and a[xx][yy] == "X":
+            dfs(xx, yy, k)
+
+
+# 主结构体
+# 问题：如何将斑点位置存放到两个不同的数组中
+k = 0
+for x in range(n):
+    for y in range(m):
+        if a[x][y] == "X":
+            dfs(x, y, k)
+            k += 1
+for i in point[0]:
+    for j in point[1]:
+        ans = min(ans, abs(i[0] - j[0]) + abs(i[1] - j[1]) - 1)
+print(ans)
